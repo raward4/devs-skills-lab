@@ -1,9 +1,9 @@
-import * as todoDb from "../data/todo-db.js"
+import * as skillDb from "../data/skill-db.js"
 
 function index(req, res) {
-  todoDb.find({}, function (error, todos) {
-    res.render('todos/index', {
-      todos: todos,
+  skillDb.find({}, function (error, skills) {
+    res.render('skills/index', {
+      skills: skills,
       error: error,
       time: req.time
     })
@@ -12,34 +12,34 @@ function index(req, res) {
 
 function show(req, res) {
   console.log(req.params.id)
-  todoDb.findById(req.params.id, function (error, todo) {
-    res.render('todos/show', {
-      todo: todo,
+  skillDb.findById(req.params.id, function (error, skill) {
+    res.render('skills/show', {
+      skill: skill,
       error: error
     })
   })
 }
 
-function newTodo(req, res) {
-  res.render('todos/new')
+function newSkill(req, res) {
+  res.render('skills/new')
 }
 
 function create(req, res) {
-  todoDb.create(req.body, function (error, todo) {
-    res.redirect('/todos')
+  skillDb.create(req.body, function (error, skill) {
+    res.redirect('/skills')
   })
 }
 
-function deleteTodo(req, res) {
-  todoDb.findByIdAndDelete(req.params.id, function(error, todo) {
-    res.redirect('/todos')
+function deleteSkill(req, res) {
+  skillDb.findByIdAndDelete(req.params.id, function(error, skill) {
+    res.redirect('/skills')
   })
 }
 
 export {
   index,
   show,
-  newTodo as new,
+  newSkill as new,
   create,
-  deleteTodo as delete
+  deleteSkill as delete
 }
