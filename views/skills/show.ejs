@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New To-Do!</title>
+  <title>Express Skills</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <h1>New To-Do</h1>
-  <form action="/todos" method="POST" autocomplete="off">
-    <input type="text" name="text">
-    <button type="submit">Save To-Do</button>
-  </form>
+  <h1>Skill</h1>
+  <% if(error) { %>
+    <h2><%= error %></h2>
+  <% } else { %>
+    <h2>Skill #<%= skill._id %></h2>
+    <h3><%= skill.text %></h3>
+    <p>Complete: <%= skill.done ? "Yes" : "No" %></p>
+  <% } %>
+  <a href="/skills">Go back</a>
 </body>
 </html>
