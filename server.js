@@ -7,7 +7,7 @@ import methodOverride from "method-override"
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
-import { router as todosRouter } from './routes/todos.js'
+import { router as todosRouter } from './routes/skills.js'
 
 // set up app
 const app = express()
